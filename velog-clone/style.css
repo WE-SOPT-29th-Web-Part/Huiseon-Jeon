@@ -33,6 +33,7 @@ b{
     display: flex;
     align-items: center;
     color:rgb(52, 58, 64);
+    cursor: pointer;
 }
 
 .header__rightbar{
@@ -45,6 +46,7 @@ b{
     width:21px;
     height:21px;
     margin-right:1.5rem;
+    cursor: pointer;
 }
 
 .header__login{
@@ -137,6 +139,12 @@ b{
     margin:1rem;
     box-shadow: rgba(0,0,0,0.05) 0px 4px 16px 0px;
     flex-direction: column;
+    transition: 0.25s ease-in 0s;
+    cursor:pointer;
+}
+.article:hover{
+    box-shadow: rgba(0,0,0,0.13) 0px 12px 20px 0px;
+    transform: translateY(-8px);
 }
 .article__img-wrap{
     width:100%;
@@ -145,6 +153,7 @@ b{
 .article__img{
     width:100%;
     height:100%;
+    border-radius: 4px 4px 0px 0px;
 }
 .article__contents-wrap{
     padding : 1rem;
