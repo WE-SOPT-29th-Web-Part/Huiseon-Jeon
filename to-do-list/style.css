@@ -78,14 +78,21 @@ li{
 
 .todos__today,
 .todos__tomorrow{
-    width:100%;
+    width:0;
     border-right: 3px dashed #6e69a8;
     display: flex;
     flex-direction: column;
     /* justify-content : center */
     align-items: center;
+    visibility: hidden;
+    transition: all 300ms ease;
 }
 
+.todos__today.open,
+.todos__tomorrow.open{
+    width:100%;
+    visibility: visible;
+}
 .todos__items{
     flex-grow : 1;
     width: 100%;
