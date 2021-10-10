@@ -25,16 +25,14 @@ const onAdd = (index) =>{
     const li = document.createElement("li");
     const span = document.createElement("span");
     const deleteBtn = document.createElement("button");
-        //const checkBox = document.createElement("input");
-
+    
     li.setAttribute("class", "todos__item");
     span.setAttribute("class", "todos__name");
     deleteBtn.setAttribute("class", "todos__delete");
-        //checkBox.setAttribute("type", "checkbox");
 
     deleteBtn.innerText = "X";
-        //span.appendChild(checkBox);
-    span.innerText = inputs[index].value;
+    const checkBoxStr = "<input type='checkbox'>"+inputs[index].value+"</input>";
+    span.innerHTML = checkBoxStr;
         
     li.appendChild(span);
     li.appendChild(deleteBtn);
