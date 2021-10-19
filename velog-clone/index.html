@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velog-Clone</title>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 
 <body>
@@ -30,6 +31,12 @@
             <div class="menu__options-date">
                 이번 주
                 <img src="./icon/dropdown.svg" class="menu__options-date-icon">
+                <ul class="menu__dropdown" style="visibility: hidden">
+                    <li class="menu__dropdown-list">오늘</li>
+                    <li class="menu__dropdown-list active">이번 주</li>
+                    <li class="menu__dropdown-list">이번 달</li>
+                    <li class="menu__dropdown-list">올해</li>
+                </ul>
             </div>
         </div>
         <button class="menu__more"></button>
