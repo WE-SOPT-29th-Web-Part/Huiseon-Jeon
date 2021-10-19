@@ -1,6 +1,6 @@
 "use strict";
 
-//dropdown
+//dropdown 구현
 const menuOptionsData = document.querySelector(".menu__options-date");
 const menuDropdown = document.querySelector(".menu__dropdown");
 
@@ -18,3 +18,48 @@ menuDropdown.addEventListener("click",(e)=>{
     });
     e.target.classList.add("active");
 });
+
+//modal창 구현
+const articles = document.querySelectorAll(".article");
+const modal = document.querySelector(".modal");
+const modalWrap = document.querySelector(".modal__wrap");
+const modalClose = document.querySelector(".modal__close");
+let isModal = false;
+
+//article을 클릭하면 모달창이 팝업
+const showModal = (e) => {
+    modal.style.visibility = "visible";
+    document.body.style.overflow="hidden";
+
+    if(isModal === false){
+        const clickArticle = e.target.closest(".article");
+        const closeIC = document.createElement("img");
+    
+        closeIC.setAttribute("src","./icon/x-circle.svg");
+        closeIC.className="modal__close";
+        closeIC.addEventListener("click",removeModal);
+
+        modalWrap.appendChild(clickArticle);
+        modalWrap.appendChild(closeIC);
+        
+        //모달창 중복 구현 방지
+        isModal = true;
+    }  
+}
+
+articles.forEach(article=>{
+    article.addEventListener("click",showModal);
+})
+
+//X클릭하면 모달창 꺼짐
+const removeModal = () => {
+    modalWrap.removeChild(modalWrap.lastChild);
+    modalWrap.removeChild(modalWrap.lastChild);
+
+    modal.style.visibility = "hidden";
+    document.body.style.overflow = "visible";
+
+    isModal = false;
+}
+
+

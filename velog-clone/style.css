@@ -31,6 +31,33 @@ ul{
 li{
     list-style: none;
 }
+
+.modal{
+    width:100%;
+    height:100vh;
+    background-color: rgba(0,0,0,0.7);
+    position:absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__wrap{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.modal__wrap .article:hover{
+    transform : none;
+}
+
+.modal__wrap .modal__close{
+    cursor: pointer;
+}
+
 .header{
     justify-content: space-between;
     display : flex;
