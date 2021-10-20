@@ -10,3 +10,4 @@
 ## 📌 스크린샷
 
 ![To Do List - Chrome 2021-10-08 오전 12_55_31](https://user-images.githubusercontent.com/67372977/136420678-f97b0ce2-5363-47ad-8613-df5a35bc044d.png)
+![녹화_2021_10_21_01_47_34_368](https://user-images.githubusercontent.com/67372977/138136505-75e98ed0-1d5f-4ba7-a2c6-9580f5749ce6.gif)
