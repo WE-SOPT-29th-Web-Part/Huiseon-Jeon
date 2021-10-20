@@ -33,9 +33,9 @@ const showModal = (e) => {
     document.body.style.overflow="hidden";
 
     if(isModal === false){
-        const clickArticle = e.target.closest(".article");
+        const clickArticle = e.target.closest(".article").cloneNode(true);
         const closeIC = document.createElement("img");
-    
+
         closeIC.setAttribute("src","./icon/x-circle.svg");
         closeIC.className="modal__close";
         closeIC.addEventListener("click",removeModal);
