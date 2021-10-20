@@ -19,4 +19,4 @@
 
 ![Velog-Clone - Chrome 2021-10-08 오전 12_31_08](https://user-images.githubusercontent.com/67372977/136416404-b4ecfd24-23a5-40b6-9c27-8dc24725402c.png)
 ![velog-clone-video](https://user-images.githubusercontent.com/67372977/136417971-350b5cad-f8f0-4dd0-83b2-b87ca30a25b3.gif)
-![assignment2-video](https://user-images.githubusercontent.com/67372977/138130034-c0706dcd-6aa9-40bf-90fe-65f6a364a1e0.gif)
+![녹화_2021_10_21_01_24_08_738](https://user-images.githubusercontent.com/67372977/138134116-44f60481-b63d-4302-baec-d4859a445a3b.gif)
