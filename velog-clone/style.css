@@ -49,6 +49,9 @@ li{
     flex-direction: column;
     flex-wrap: wrap;
 }
+.modal__wrap .article{
+    cursor: default;
+}
 
 .modal__wrap .article:hover{
     transform : none;
