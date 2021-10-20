@@ -61,5 +61,3 @@ const removeModal = () => {
 
     isModal = false;
 }
-
-
