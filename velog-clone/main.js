@@ -3,7 +3,7 @@
 //dropdown 구현
 const menuOptionsData = document.querySelector(".menu__options-date");
 const menuDropdown = document.querySelector(".menu__dropdown");
-
+const menuOptionsText = document.querySelector(".menu__options-text");
 menuOptionsData.addEventListener("click",()=>{
     if(menuDropdown.style.visibility == "hidden"){
         menuDropdown.style.visibility = "visible";
@@ -17,6 +17,7 @@ menuDropdown.addEventListener("click",(e)=>{
         element.classList.remove("active");
     });
     e.target.classList.add("active");
+    menuOptionsText.innerText = e.target.innerText;
 });
 
 //modal창 구현
