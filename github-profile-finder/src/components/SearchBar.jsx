@@ -23,6 +23,7 @@ const SearchBar = ({setUserInfo}) => {
         //구조분해할당
         const { data } = await axios.get(`https://api.github.com/users/${user}`);
         setUserInfo(data);
+        setUser("");
     };
 
     return (

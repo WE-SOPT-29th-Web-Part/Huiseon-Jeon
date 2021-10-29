@@ -6,17 +6,13 @@ import Result from './components/Result';
 import SearchBar from './components/SearchBar';
 
 function App() {
-  const [userInfo, setUserInfo] = useState("");
-
-  useEffect(() => {
-    console.log(`userInfo`,userInfo);
-  }, [userInfo]);
+  const [userInfo, setUserInfo] = useState({});
 
   return (
     <Root>
       <Header/>
       <SearchBar setUserInfo={setUserInfo}/>
-      <Result userInfo={userInfo}/>
+      <Result userInfo={userInfo} setUserInfo={setUserInfo}/>
     </Root>
   );
 }
