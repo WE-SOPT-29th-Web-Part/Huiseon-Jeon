@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
 import Result from './components/Result';
+import Result2 from './components/Result2';
 import SearchBar from './components/SearchBar';
 
 function App() {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({data:null, status:"idle"});
 
   return (
     <Root>
       <Header/>
       <SearchBar setUserInfo={setUserInfo}/>
-      <Result userInfo={userInfo} setUserInfo={setUserInfo}/>
+      <Result2 userInfo={userInfo} setUserInfo={setUserInfo}/>
     </Root>
   );
 }

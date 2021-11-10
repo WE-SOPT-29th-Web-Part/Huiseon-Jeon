@@ -12,6 +12,7 @@ const SearchBar = ({setUserInfo}) => {
     const handleSubmit = async (e) =>{
         //submit를 하면 기본적으로 새로고침이 됨. 이것을 방지하고 싶다.
         e.preventDefault(); //이벤트 막음
+        setUserInfo((currentUserInfo) => ({...currentUserInfo, status:"pending"})); //데이터 로딩중
         
         //user값을 이용하여 정보를 받아오자.
         //서버에 있는 데이터를 받아오는 방법 -> 온라인에 올라와있는 데이터를 받아오자.
@@ -21,8 +22,21 @@ const SearchBar = ({setUserInfo}) => {
         //get은 받아온다는 의미, rest api의 한 종류
         
         //구조분해할당
-        const { data } = await axios.get(`https://api.github.com/users/${user}`);
-        setUserInfo(data);
+        try{
+            const { data } = await axios.get(`https://api.github.com/users/${user}`);
+            setUserInfo(currentUserInfo => ({
+                ...currentUserInfo,
+                data, //key와 value가 같을때 -> data:data
+                status:"resolved" //받아오는 데 성공한 상태
+            }));
+        } catch(error){
+            setUserInfo(currentUserInfo => ({
+                ...currentUserInfo,
+                data:null, //key와 value가 같을때 -> data:data
+                status:"rejected" //받아오는 데 성공한 상태
+            }));
+            console.log(error);
+        }
         setUser("");
     };
 

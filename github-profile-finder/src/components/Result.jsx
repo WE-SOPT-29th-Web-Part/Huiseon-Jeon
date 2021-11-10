@@ -18,7 +18,6 @@ const Result = ({userInfo,setUserInfo}) => {
         setUserInfo({});
     }
     return (
-        avatar_url ? (
         <Root>
             <button onClick={removeCard}>닫기</button>
             <img src={avatar_url} alt="" />
@@ -40,7 +39,7 @@ const Result = ({userInfo,setUserInfo}) => {
                     {public_repos}
                 </li>
             </Ul>
-        </Root>) : (<></>)
+        </Root>
     );
 };
 
