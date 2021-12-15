@@ -1,0 +1,19 @@
+@import "reset-css";
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin : 0;
+    /* 100 viewport height */
+  height : 100vh;
+  display :  flex;
+  flex-direction: column;
+  width:100%;
+  overflow-x: hidden;
+}
+
+button{
+  cursor:pointer;
+}
