@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ImgWrapper from '../common/ImgWrapper';
 
 const ArticleCard = ({index,article}) => {
 
@@ -16,7 +18,11 @@ const ArticleCard = ({index,article}) => {
 
     return (
         <Wrapper index={index} >
-            <ArticleImg thumbnail={article.thumbnail} src={thumbnail} alt=""/>
+            <Link to={`article/${article.id}`} state={article}>
+                <ImgWrapper ratio="56%" >
+                    {thumbnail && (<img src={thumbnail} alt=""/>)}
+                </ImgWrapper>
+            </Link>
             <h3>{title}</h3>
             <h4>{summary}</h4>
             <TagWrap>
@@ -59,13 +65,8 @@ const Wrapper = styled.div`
         margin: 10px;
     }
 `
-const ArticleImg = styled.img`
-    width:100%;
-    height:400px;
-    display: ${props => props.thumbnail === "" ? 'none' : 'block'};
-`
 
-const Tag = styled.div`
+export const Tag = styled.div`
     padding: 0 1rem;
     height:2rem;
     line-height: 2rem;
@@ -78,7 +79,7 @@ const Tag = styled.div`
     background-color: rgb(248, 249, 250);;
 `
 
-const TagWrap = styled.div`
+export const TagWrap = styled.div`
     display:flex;
     flex-wrap:wrap;
     margin: 10px;

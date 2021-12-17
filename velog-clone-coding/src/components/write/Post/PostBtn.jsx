@@ -1,12 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 const PostBtn = ({handlerPost}) => {
-    const history = useHistory();
     const handlerClick = async () =>{
         await handlerPost()
-        history.push("/");
     }
     return (
         <BtnWrapper>
