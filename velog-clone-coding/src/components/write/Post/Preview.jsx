@@ -17,8 +17,9 @@ const Preview = ({setArticleData, onDataChange, summary, thumbnail}) => {
         const imageFile = e.target.files[0];
         formData.append("file", imageFile);
         const imageResponse = await imageClient.post("", formData);
-        setImageUrl(imageResponse.data.url);
-        onDataChange("thumbnail",imageUrl);
+        const imgUrl = imageResponse.data.url
+        setImageUrl(imgUrl);
+        onDataChange("thumbnail",imgUrl);
     };
     
     return (

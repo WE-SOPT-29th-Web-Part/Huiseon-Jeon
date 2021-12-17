@@ -31,7 +31,7 @@ const Article = () => {
                 </TagWrap>
                 <BodyWrap>
                     {thumbnail && (<ImgWrapper ratio="50%">
-                        <img src={thumbnail.value} alt="thumbnail" />
+                        <img src={thumbnail} alt="thumbnail" />
                     </ImgWrapper>)}
                     <div>{body}</div>
                 </BodyWrap>

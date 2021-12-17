@@ -15,13 +15,11 @@ const ArticleCard = ({index,article}) => {
         thumbnail,
         date
     } = article;
-
-    console.log(thumbnail);
     return (
         <Wrapper index={index} >
             <Link to={`article/${article.id}`} state={article}>
                 {thumbnail && <ImgWrapper ratio="56%" >
-                    <img src={thumbnail} alt=""/>
+                    <img src={thumbnail} alt="thumbnail"/>
                 </ImgWrapper>}
                 <h3>{title}</h3>
             </Link>
