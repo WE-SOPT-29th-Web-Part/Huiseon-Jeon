@@ -11,6 +11,7 @@ const Article = () => {
     const location = useLocation();
     const article = location.state;
     const {id, title, body, thumbnail, date, tags} = article;
+    console.log(thumbnail);
     return (
         <>
             <Header/>
@@ -31,7 +32,7 @@ const Article = () => {
                 </TagWrap>
                 <BodyWrap>
                     {thumbnail && (<ImgWrapper ratio="50%">
-                        <img src={thumbnail} alt="thumbnail" />
+                        <img src={thumbnail.value} alt="thumbnail" />
                     </ImgWrapper>)}
                     <div>{body}</div>
                 </BodyWrap>

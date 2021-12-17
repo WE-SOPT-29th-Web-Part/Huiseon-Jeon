@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { imageClient } from '../../../libs/api';
 import ImgWrapper from '../../common/ImgWrapper';
 
-const Preview = ({setArticleData, onDataChange, summary}) => {
+const Preview = ({setArticleData, onDataChange, summary, thumbnail}) => {
     const [imageUrl, setImageUrl] = useState("");
     const handlerChange = (e) => {
         setArticleData(articleData => ({

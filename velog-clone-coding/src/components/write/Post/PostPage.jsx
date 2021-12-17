@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import PostBtn from './PostBtn';
 import Preview from './Preview';
 
-const PostPage = ({handlerPost,setArticleData, onDataChange, summary}) => { 
+const PostPage = ({handlerPost,setArticleData, onDataChange, summary, thumbnail}) => { 
     return (
         <Root>
         <Wrapper>
-            <Preview summary={summary} onDataChange={onDataChange} setArticleData={setArticleData}/>
+            <Preview thumbnail ={thumbnail} summary={summary} onDataChange={onDataChange} setArticleData={setArticleData}/>
             <ColLine/>
             <PostBtn handlerPost={handlerPost}/>
         </Wrapper>

@@ -16,14 +16,15 @@ const ArticleCard = ({index,article}) => {
         date
     } = article;
 
+    console.log(thumbnail);
     return (
         <Wrapper index={index} >
             <Link to={`article/${article.id}`} state={article}>
-                <ImgWrapper ratio="56%" >
-                    {thumbnail && (<img src={thumbnail} alt=""/>)}
-                </ImgWrapper>
+                {thumbnail && <ImgWrapper ratio="56%" >
+                    <img src={thumbnail} alt=""/>
+                </ImgWrapper>}
+                <h3>{title}</h3>
             </Link>
-            <h3>{title}</h3>
             <h4>{summary}</h4>
             <TagWrap>
             {tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
@@ -42,11 +43,13 @@ const Wrapper = styled.div`
     padding-top: 50px;
     border-top: ${props => (props.index === 0 ? 0 : '1px solid rgb(201, 201, 201)')};
 
-    &>h3 {
+    &>a{
         font-size:1.5rem;
         font-weight:bold;
         word-break: keep-all;
         margin: 10px;
+        text-decoration:none;
+        color:black;
     }
 
     &>h4 {

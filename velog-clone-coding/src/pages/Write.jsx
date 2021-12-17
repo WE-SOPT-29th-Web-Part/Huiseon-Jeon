@@ -24,15 +24,14 @@ const Write = () => {
     });
 
     const createArticle = async () =>{
-        // const {data} = await client.get('/article');
+        const {data} = await client.get('/article');
         if(article){
             await client.patch(`/article/${article.id}`, articleData);
-            navigate(`/article/${article.id}`,{state:articleData});
-        }else{
-            await client.post('/article',{articleData});
-            navigate("/");
+            navigate(`/article/${article.id}`,{state: articleData});
+            return;
         }
-        
+        await client.post('/article',{...articleData});
+        navigate("/");
     };
 
     const handlerPost = async () =>{
@@ -57,9 +56,7 @@ const Write = () => {
         setArticleData(tempArticleData);
     }
 
-    useEffect(() => {
-        console.log(`articleData`, articleData)
-    }, [articleData])
+    
     return (
         !(isPost) ? (
         <>
@@ -73,7 +70,7 @@ const Write = () => {
         ) : 
         (
         <>
-        <PostPage summary={articleData.summary} onDataChange={handleArrDataChange} handlerPost={handlerPost} setArticleData={setArticleData}/>)
+        <PostPage summary={articleData.summary} thumbnail={articleData.thumbnail} onDataChange={handleArrDataChange} handlerPost={handlerPost} setArticleData={setArticleData}/>)
         </>
         )
     );
