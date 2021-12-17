@@ -4,7 +4,7 @@ import Header from '../components/common/Header';
 import HomeNav from '../components/home/HomeNav';
 import ArticleContainer from '../components/home/ArticleContainer';
 import styled from 'styled-components';
-import { Route } from 'react-router';
+import { Routes , Route } from "react-router-dom";
 import SeriesCategory from './SeriesCategory';
 
 const Home = () => {
@@ -14,8 +14,10 @@ const Home = () => {
             <HomeBody>
                 <Profile/>
                 <HomeNav/>
-                <Route exact path="/" component={ArticleContainer}/>
-                <Route exact path="/series" component={SeriesCategory}/>
+                <Routes>
+                    <Route  path="/series" element={<SeriesCategory/>}/>
+                    <Route  path="/" element={<ArticleContainer/>}/>
+                </Routes>
             </HomeBody>
         </div>
     );

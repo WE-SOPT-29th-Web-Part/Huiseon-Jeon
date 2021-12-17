@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ImgWrapper from '../common/ImgWrapper';
 
 const ArticleCard = ({index,article}) => {
 
@@ -13,11 +15,14 @@ const ArticleCard = ({index,article}) => {
         thumbnail,
         date
     } = article;
-
     return (
         <Wrapper index={index} >
-            <ArticleImg thumbnail={article.thumbnail} src={thumbnail} alt=""/>
-            <h3>{title}</h3>
+            <Link to={`article/${article.id}`} state={article}>
+                {thumbnail && <ImgWrapper ratio="56%" >
+                    <img src={thumbnail} alt="thumbnail"/>
+                </ImgWrapper>}
+                <h3>{title}</h3>
+            </Link>
             <h4>{summary}</h4>
             <TagWrap>
             {tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
@@ -36,11 +41,13 @@ const Wrapper = styled.div`
     padding-top: 50px;
     border-top: ${props => (props.index === 0 ? 0 : '1px solid rgb(201, 201, 201)')};
 
-    &>h3 {
+    &>a{
         font-size:1.5rem;
         font-weight:bold;
         word-break: keep-all;
         margin: 10px;
+        text-decoration:none;
+        color:black;
     }
 
     &>h4 {
@@ -59,13 +66,8 @@ const Wrapper = styled.div`
         margin: 10px;
     }
 `
-const ArticleImg = styled.img`
-    width:100%;
-    height:400px;
-    display: ${props => props.thumbnail === "" ? 'none' : 'block'};
-`
 
-const Tag = styled.div`
+export const Tag = styled.div`
     padding: 0 1rem;
     height:2rem;
     line-height: 2rem;
@@ -78,7 +80,7 @@ const Tag = styled.div`
     background-color: rgb(248, 249, 250);;
 `
 
-const TagWrap = styled.div`
+export const TagWrap = styled.div`
     display:flex;
     flex-wrap:wrap;
     margin: 10px;

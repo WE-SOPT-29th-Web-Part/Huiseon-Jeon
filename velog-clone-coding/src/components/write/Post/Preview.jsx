@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { imageClient } from '../../../libs/api';
+import ImgWrapper from '../../common/ImgWrapper';
 
-const Preview = ({setArticleData}) => {
+const Preview = ({setArticleData, onDataChange, summary, thumbnail}) => {
+    const [imageUrl, setImageUrl] = useState("");
     const handlerChange = (e) => {
         setArticleData(articleData => ({
             ...articleData, 
             summary: e.target.value
         }));
     }
+
+    const handleImageChange = async(e) => {
+        const formData = new FormData();
+        const imageFile = e.target.files[0];
+        formData.append("file", imageFile);
+        const imageResponse = await imageClient.post("", formData);
+        const imgUrl = imageResponse.data.url
+        setImageUrl(imgUrl);
+        onDataChange("thumbnail",imgUrl);
+    };
+    
     return (
         <Wrapper>
          <Title>포스트 미리보기</Title>
-         <SummaryInput onChange={handlerChange} placeholder="당신의 포스트를 짧게 소개해보세요."></SummaryInput>   
+         <input type="file" onChange={handleImageChange}/>
+        {imageUrl && <ImgWrapper ratio="50%">
+            <img src={imageUrl} alt="thumbnail" />
+        </ImgWrapper>}
+         <SummaryInput value={summary} onChange={handlerChange} placeholder="당신의 포스트를 짧게 소개해보세요."></SummaryInput>   
         </Wrapper>
     );
 };
