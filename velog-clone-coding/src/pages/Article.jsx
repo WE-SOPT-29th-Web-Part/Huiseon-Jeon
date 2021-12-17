@@ -11,7 +11,6 @@ const Article = () => {
     const location = useLocation();
     const article = location.state;
     const {id, title, body, thumbnail, date, tags} = article;
-    console.log(thumbnail);
     return (
         <>
             <Header/>
